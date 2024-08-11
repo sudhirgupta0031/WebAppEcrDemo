@@ -19,7 +19,7 @@ jobs:
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v2  # Updated to v2
       with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: ap-south-1  # Directly specifying the region
 
@@ -46,7 +46,7 @@ jobs:
 
     - name: Deploy to ECS
       env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_REGION: ap-south-1  # Directly specifying the region
         ECR_REGISTRY: ${{ secrets.ECR_REGISTRY }}
