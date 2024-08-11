@@ -2,9 +2,16 @@
 FROM ubuntu
 
 #updating the libraries and installing prebuild request i.e nginx
-RUN apt-get update
-RUN apt-get install upgrade -y
-RUN apt-get install nginx
+RUN apt-get update |apt upgrade -y
+RUN apt install nginx -y 
+
+WORKDIR /web_app
+#coping the file
+COPY /code /var/www/html
+
 
 #coping the file
-COPY ./code ./code
+EXPOSE 80
+
+# Start Nginx
+CMD ["nginx", "-g", "daemon off;"]
