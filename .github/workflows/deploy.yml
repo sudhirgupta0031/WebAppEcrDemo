@@ -32,8 +32,8 @@ jobs:
         ECR_REGISTRY: ${{ secrets.ECR_REGISTRY }}
         ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY }}
       run: |
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY .
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY 
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:1.0 .
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:1.0 
 
   deploy:
     needs: build
